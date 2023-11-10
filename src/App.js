@@ -18,6 +18,16 @@ const App = () => {
     fetchRentals();
   }, []);
 
+  useEffect(() => {
+    const calculatedOwnerReceives = formData.userPays - formData.platformFee;
+    const newOwnerReceives = Math.max(calculatedOwnerReceives, 0);
+
+    setFormData((prevData) => ({
+      ...prevData,
+      ownerReceives: newOwnerReceives.toFixed(2),
+    }));
+  }, [formData?.userPays, formData?.platformFee]);
+
   const fetchRentals = async () => {
     try {
       const response = await axios.get(
@@ -187,6 +197,7 @@ const App = () => {
                   value={formData?.userPays}
                   onChange={handleInputChange}
                   required
+                  min={formData.rentAmount + formData.platformFee}
                 />
               </Form.Group>
 
@@ -199,6 +210,7 @@ const App = () => {
                   value={formData?.ownerReceives}
                   onChange={handleInputChange}
                   required
+                  readOnly
                 />
               </Form.Group>
 
