@@ -43,6 +43,7 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  width: 100%;
 }
 
 .container {
@@ -53,59 +54,22 @@ body {
   margin-top: 20px;
 }
 
-.modal-container {
-  border: 2px solid #007bff;
-  border-radius: 8px;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-direction: row;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 70%;
-  height: 50%;
-  background: rgba(0, 0, 0, 0.515);
-  margin-left: 15%;
-  margin-top: 5%;
-}
-
-/* Style the close button */
-.modal-container .close {
-  color: red;
-}
-
-/* Style the modal body */
-.modal-container .modal-body {
-  padding: 10px;
-}
 
 /* Style the form and button */
-.modal-container form {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 
-.modal-container form label {
-  margin-bottom: 5px;
+.col {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.modal-container form input {
-  margin-bottom: 15px;
+.form.label {
+  width: 200px;
 }
-
-.modal-container button[type="submit"] {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.modal-container button[type="submit"]:hover {
-  background-color: #218838;
-}
-
-
-

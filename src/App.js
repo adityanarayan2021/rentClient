@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import { Table, Button, Modal, Form } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [rentals, setRentals] = useState([]);
@@ -48,7 +49,7 @@ const App = () => {
 
   const handleShowModal = (id) => {
     if (id) {
-      const selectedRent = rentals.find((rental) => rental._id === id);
+      const selectedRent = rentals?.find((rental) => rental._id === id);
       setFormData(selectedRent);
       setSelectedRentId(id);
     } else {
@@ -154,16 +155,12 @@ const App = () => {
         </Table>
       </div>
 
-      <Modal
-        show={showModal}
-        onHide={handleCloseModal}
-        className="modal-container"
-      >
+      <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title><h2 style={{ marginTop: 50 }}>{selectedRentId ? "Edit Rent" : "Pay Rent"}</h2></Modal.Title>
+          <Modal.Title>Pay Rent</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formRentAmount" className="col">
                 <Form.Label>Rent Amount</Form.Label>
                 {' '}
